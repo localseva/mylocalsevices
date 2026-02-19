@@ -26,4 +26,6 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody LoginRequest req) {
         return ResponseEntity.ok(service.login(req));
     }
+
+    // TODO: add refresh token endpoint and logout endpoint (invalidate refresh token)
 }
