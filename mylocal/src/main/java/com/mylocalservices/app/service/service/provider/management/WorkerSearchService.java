@@ -66,9 +66,11 @@ public class WorkerSearchService {
                                             ScheduleStatus.AVAILABLE
                                     )
                     )
-                    .collect(Collectors.toList());
+                    .toList();
 
+            if (!filtered.isEmpty()) {
                 profiles = new PageImpl<>(filtered, pageable, filtered.size());
+            }
         }
 
         // Filter by specific date if specified
@@ -83,17 +85,25 @@ public class WorkerSearchService {
                                             ScheduleStatus.AVAILABLE
                                     )
                     )
-                    .collect(Collectors.toList());
-
+                    .toList();
+            if (!filtered.isEmpty()) {
                 profiles = new PageImpl<>(filtered, pageable, filtered.size());
+            }
         }
 
+        return profiles.map(this::toResponse);
+    }
+
+    public Page<WorkerSearchResponse> getAllWorkers() {
+        Pageable pageable = PageRequest.of(0, 20, Sort.by("baseFare").ascending());
+        Page<WorkerProfile> profiles = profileRepository.findAll(pageable);
         return profiles.map(this::toResponse);
     }
 
     private WorkerSearchResponse toResponse(WorkerProfile p) {
         return WorkerSearchResponse.builder()
                 .id(p.getId())
+                .name(p.getUser().getName())
                 .serviceType(p.getServiceType())
                 .experienceYears(p.getExperienceYears())
                 .description(p.getDescription())
