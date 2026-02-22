@@ -6,10 +6,7 @@ import com.mylocalservices.app.service.service.provider.management.WorkerSearchS
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/workers")
@@ -23,5 +20,11 @@ public class WorkerSearchController {
             @RequestBody WorkerSearchRequest request
     ) {
         return ResponseEntity.ok(service.search(request));
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<WorkerSearchResponse>> getAllWorkers(
+    ) {
+        return ResponseEntity.ok(service.getAllWorkers());
     }
 }

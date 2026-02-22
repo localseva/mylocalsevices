@@ -1,6 +1,8 @@
 package com.mylocalservices.app.controller.auth;
 
+import com.mylocalservices.app.dto.auth.AuthResponse;
 import com.mylocalservices.app.dto.auth.LoginRequest;
+import com.mylocalservices.app.dto.auth.RefreshTokenRequest;
 import com.mylocalservices.app.dto.auth.RegisterRequest;
 import com.mylocalservices.app.service.auth.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,30 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest req) {
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest req) {
         return ResponseEntity.ok(service.login(req));
     }
 
-    // TODO: add refresh token endpoint and logout endpoint (invalidate refresh token)
+    /**
+     * 🔄 Refresh Access Token using Refresh Token
+     */
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refreshToken(
+            @RequestBody RefreshTokenRequest request) {
+
+        return ResponseEntity.ok(
+                service.refreshToken(request.getRefreshToken())
+        );
+    }
+
+    /**
+     * 🚪 Logout — invalidate refresh token
+     */
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(
+            @RequestBody RefreshTokenRequest request) {
+
+        service.logout(request.getRefreshToken());
+        return ResponseEntity.ok("Logged out successfully");
+    }
 }

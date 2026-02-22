@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 public class WorkerSearchResponse {
 
     private Long id;
+    private String name;
 
     private ServiceType serviceType;
     private Integer experienceYears;
