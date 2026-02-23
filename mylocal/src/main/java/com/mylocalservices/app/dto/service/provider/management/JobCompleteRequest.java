@@ -1,4 +1,4 @@
-package com.mylocalservices.app.dto.service.provider.management.workers;
+package com.mylocalservices.app.dto.service.provider.management;
 
 import lombok.Data;
 

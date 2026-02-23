@@ -1,6 +1,6 @@
 package com.mylocalservices.app.service.service.provider.management.book;
 
-import com.mylocalservices.app.dto.service.provider.management.workers.book.CreateJobRequest;
+import com.mylocalservices.app.dto.service.provider.management.book.CreateJobRequest;
 import com.mylocalservices.app.entity.auth.User;
 import com.mylocalservices.app.entity.service.provider.management.workers.WorkerProfile;
 import com.mylocalservices.app.entity.service.provider.management.workers.book.JobRequest;

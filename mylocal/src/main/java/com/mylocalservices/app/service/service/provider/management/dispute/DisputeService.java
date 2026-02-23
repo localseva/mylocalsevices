@@ -1,6 +1,6 @@
 package com.mylocalservices.app.service.service.provider.management.dispute;
 
-import com.mylocalservices.app.dto.service.provider.management.workers.dispute.RaiseDisputeRequest;
+import com.mylocalservices.app.dto.service.provider.management.dispute.RaiseDisputeRequest;
 import com.mylocalservices.app.entity.auth.User;
 import com.mylocalservices.app.entity.service.provider.management.workers.book.JobRequest;
 import com.mylocalservices.app.entity.service.provider.management.workers.dispute.Dispute;
@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service

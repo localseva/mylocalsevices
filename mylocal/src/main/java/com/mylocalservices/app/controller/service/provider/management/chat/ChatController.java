@@ -1,6 +1,6 @@
 package com.mylocalservices.app.controller.service.provider.management.chat;
 
-import com.mylocalservices.app.dto.service.provider.management.workers.chat.SendMessageRequest;
+import com.mylocalservices.app.dto.service.provider.management.chat.SendMessageRequest;
 import com.mylocalservices.app.entity.service.provider.management.workers.chat.ChatMessage;
 import com.mylocalservices.app.service.service.provider.management.chat.ChatService;
 import lombok.RequiredArgsConstructor;

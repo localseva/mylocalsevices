@@ -1,4 +1,4 @@
-package com.mylocalservices.app.dto.service.provider.management.workers.book;
+package com.mylocalservices.app.dto.service.provider.management.book;
 
 import com.mylocalservices.app.entity.service.provider.management.workers.book.JobRequest;
 import com.mylocalservices.app.enums.auth.worker.CancelledBy;

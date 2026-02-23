@@ -28,5 +28,6 @@ public interface WorkerScheduleRepository
     );
 
     List<WorkerSchedule> findByWorkerAndJobRequest(WorkerProfile worker, JobRequest jobRequest);
+    List<WorkerSchedule> findByWorker_IdAndStatus(Long workerId, ScheduleStatus status);
 }
 

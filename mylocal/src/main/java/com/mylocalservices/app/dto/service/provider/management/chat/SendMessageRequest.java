@@ -1,4 +1,4 @@
-package com.mylocalservices.app.dto.service.provider.management.workers.chat;
+package com.mylocalservices.app.dto.service.provider.management.chat;
 
 import lombok.Data;
 

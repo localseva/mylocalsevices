@@ -1,5 +1,6 @@
 package com.mylocalservices.app.service.service.provider.management;
 
+import com.mylocalservices.app.dto.service.provider.management.workers.WorkerReviewsResponse;
 import com.mylocalservices.app.dto.service.provider.management.workers.WorkerSearchRequest;
 import com.mylocalservices.app.dto.service.provider.management.workers.WorkerSearchResponse;
 import com.mylocalservices.app.entity.service.provider.management.workers.WorkerProfile;
@@ -11,7 +12,6 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -113,6 +113,28 @@ public class WorkerSearchService {
                 .baseFare(p.getBaseFare())
                 .available(p.getAvailable())
                 .phone(p.getUser().getPhone())
+                .rating(p.getSchedules().stream()
+                        .filter(s -> s.getStatus() == ScheduleStatus.COMPLETED)
+                        .mapToDouble(j-> j.getJobRequest().getRating())
+                        .average()
+                        .orElse(0.0))
+                .worksDone(p.getSchedules().stream()
+                        .filter(s -> s.getStatus() == ScheduleStatus.COMPLETED)
+                        .count())
                 .build();
+    }
+    
+    public List<WorkerReviewsResponse> getReviewsByWorkerId(Long workerId) {
+        return scheduleRepository.findByWorker_IdAndStatus(workerId, ScheduleStatus.COMPLETED)
+                .stream()
+                .filter(s -> s.getJobRequest().getRating() != null)
+                .map(s -> {
+                    WorkerReviewsResponse response = new WorkerReviewsResponse();
+                    response.setCustomerName(s.getJobRequest().getCustomer().getName());
+                    response.setRating(s.getJobRequest().getRating());
+                    response.setComment(s.getJobRequest().getFeedback());
+                    return response;
+                })
+                .toList();
     }
 }

@@ -1,10 +1,10 @@
 package com.mylocalservices.app.controller.service.provider.management.book;
 
-import com.mylocalservices.app.dto.service.provider.management.workers.JobCompleteRequest;
+import com.mylocalservices.app.dto.service.provider.management.JobCompleteRequest;
 import com.mylocalservices.app.dto.service.provider.management.workers.WorkerProfileResponse;
-import com.mylocalservices.app.dto.service.provider.management.workers.book.CreateJobRequest;
-import com.mylocalservices.app.dto.service.provider.management.workers.book.JobActionRequest;
-import com.mylocalservices.app.dto.service.provider.management.workers.book.JobRequestDTO;
+import com.mylocalservices.app.dto.service.provider.management.book.CreateJobRequest;
+import com.mylocalservices.app.dto.service.provider.management.book.JobActionRequest;
+import com.mylocalservices.app.dto.service.provider.management.book.JobRequestDTO;
 import com.mylocalservices.app.entity.service.provider.management.workers.book.JobRequest;
 import com.mylocalservices.app.enums.worker.book.JobStatus;
 import com.mylocalservices.app.service.service.provider.management.WorkerProfileService;

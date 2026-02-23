@@ -1,6 +1,6 @@
 package com.mylocalservices.app.controller.service.provider.management.dispute;
 
-import com.mylocalservices.app.dto.service.provider.management.workers.dispute.RaiseDisputeRequest;
+import com.mylocalservices.app.dto.service.provider.management.dispute.RaiseDisputeRequest;
 import com.mylocalservices.app.entity.service.provider.management.workers.dispute.Dispute;
 import com.mylocalservices.app.service.service.provider.management.dispute.DisputeService;
 import lombok.RequiredArgsConstructor;

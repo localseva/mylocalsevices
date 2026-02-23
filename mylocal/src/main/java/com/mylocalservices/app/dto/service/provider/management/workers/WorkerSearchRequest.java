@@ -4,7 +4,6 @@ import com.mylocalservices.app.enums.auth.worker.ServiceType;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data

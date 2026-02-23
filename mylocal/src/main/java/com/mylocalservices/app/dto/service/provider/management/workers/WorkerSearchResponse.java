@@ -25,4 +25,8 @@ public class WorkerSearchResponse {
 
     private BigDecimal baseFare;
     private Boolean available;
+
+    private double rating;
+    private String profilePictureUrl;
+    private long worksDone;
 }

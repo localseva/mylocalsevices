@@ -1,4 +1,4 @@
-package com.mylocalservices.app.dto.service.provider.management.workers.dispute;
+package com.mylocalservices.app.dto.service.provider.management.dispute;
 
 import lombok.Data;
 
