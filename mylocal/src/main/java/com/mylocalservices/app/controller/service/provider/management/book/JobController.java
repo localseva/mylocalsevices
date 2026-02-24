@@ -49,6 +49,12 @@ public class JobController {
     }
 
     // Worker Calendar / Job List
+    //It returns all accepted jobs (bookings) of a worker in a time range so the worker (or system) can see:
+    //✅ Upcoming jobs
+    //✅ Busy time slots
+    //✅ Free time slots
+    //✅ Prevent double booking
+    //✅ Show calendar UI
     @GetMapping("/calendar")
     public ResponseEntity<Page<JobRequestDTO>> getCalendar(
             @RequestParam(required = false) JobStatus status,
